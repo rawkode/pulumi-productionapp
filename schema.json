@@ -1,56 +1,48 @@
 {
-    "name": "xyz",
+    "name": "productionapp",
     "resources": {
-        "xyz:index:StaticPage": {
+        "productionapp:index:Deployment": {
             "isComponent": true,
             "inputProperties": {
-                "indexContent": {
+                "image": {
                     "type": "string",
-                    "description": "The HTML content for index.html."
+                    "description": "The image to deploy in your production ready application"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port your application listens on in your container image"
                 }
             },
             "requiredInputs": [
-                "indexContent"
+                "image",
+                "port"
             ],
-            "properties": {
-                "bucket": {
-                    "$ref": "/aws/v4.0.0/schema.json#/resources/aws:s3%2Fbucket:Bucket",
-                    "description": "The bucket resource."
-                },
-                "websiteUrl": {
-                    "type": "string",
-                    "description": "The website URL."
+            "properties": {}
+        },
+        "language": {
+            "csharp": {
+                "packageReferences": {
+                    "Pulumi": "3.*",
+                    "Pulumi.Kubernetes": "3.*"
                 }
             },
-            "required": [
-                "bucket",
-                "websiteUrl"
-            ]
-        }
-    },
-    "language": {
-        "csharp": {
-            "packageReferences": {
-                "Pulumi": "3.*",
-                "Pulumi.Aws": "4.*"
-            }
-        },
-        "go": {
-            "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-xyz/sdk/go/xyz"
-        },
-        "nodejs": {
-            "dependencies": {
-                "@pulumi/aws": "^4.0.0"
+            "go": {
+                "generateResourceContainerTypes": true,
+                "importBasePath": "github.com/rawkode/pulumi-productionapp/sdk/go/productionapp"
             },
-            "devDependencies": {
-                "typescript": "^3.7.0"
-            }
-        },
-        "python": {
-            "requires": {
-                "pulumi": ">=3.0.0,<4.0.0",
-                "pulumi-aws": ">=4.0.0,<5.0.0"
+            "nodejs": {
+                "dependencies": {
+                    "@pulumi/kubernetes": "^3.0.0"
+                },
+                "devDependencies": {
+                    "typescript": "^3.7.0"
+                }
+            },
+            "python": {
+                "requires": {
+                    "pulumi": ">=3.0.0,<4.0.0",
+                    "pulumi-kubernetes": ">=3.0.0,<4.0.0"
+                }
             }
         }
     }

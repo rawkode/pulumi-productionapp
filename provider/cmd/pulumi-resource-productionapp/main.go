@@ -17,11 +17,11 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-xyz/pkg/provider"
-	"github.com/pulumi/pulumi-xyz/pkg/version"
+	"github.com/rawkode/pulumi-productionapp/pkg/provider"
+	"github.com/rawkode/pulumi-productionapp/pkg/version"
 )
 
-var providerName = "xyz"
+var providerName = "productionapp"
 
 func main() {
 	provider.Serve(providerName, version.Version, pulumiSchema)

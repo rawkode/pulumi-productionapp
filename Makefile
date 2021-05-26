@@ -1,7 +1,7 @@
 VERSION         := 0.0.1
 
-PACK            := xyz
-PROJECT         := github.com/pulumi/pulumi-${PACK}
+PACK            := productionapp
+PROJECT         := github.com/rawkode/pulumi-${PACK}
 
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
