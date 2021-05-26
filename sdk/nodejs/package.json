@@ -1,0 +1,19 @@
+{
+    "name": "@rawkode/pulumi-productionapp",
+    "version": "${VERSION}",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/kubernetes": "^3.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.7.0"
+    },
+    "peerDependencies": {
+        "@pulumi/pulumi": "latest"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}

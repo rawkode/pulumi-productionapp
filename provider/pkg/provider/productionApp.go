@@ -25,8 +25,8 @@ import (
 
 // The set of arguments for creating a StaticPage component resource.
 type ProductionAppArgs struct {
-	Image pulumi.StringInput `pulumi:"Image"`
-	Port  pulumi.IntInput    `pulumi:"Port"`
+	Image pulumi.StringInput `pulumi:"image"`
+	Port  pulumi.IntInput    `pulumi:"port"`
 }
 
 // The StaticPage component resource.

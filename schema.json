@@ -6,43 +6,46 @@
             "inputProperties": {
                 "image": {
                     "type": "string",
-                    "description": "The image to deploy in your production ready application"
+                    "description": "The image to deploy in your production application"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "The port your application listens on in your container image"
+                    "description": "The port your container listens on"
                 }
             },
             "requiredInputs": [
-                "image",
-                "port"
+                "port",
+                "image"
             ],
-            "properties": {}
+            "properties": {},
+            "required": []
+        }
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*",
+                "Pulumi.Kubernetes": "3.*"
+            }
         },
-        "language": {
-            "csharp": {
-                "packageReferences": {
-                    "Pulumi": "3.*",
-                    "Pulumi.Kubernetes": "3.*"
-                }
+        "go": {
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/rawkode/pulumi-productionapp/sdk/go/productionapp"
+        },
+        "nodejs": {
+            "packageName": "@rawkode/pulumi-productionapp",
+            "dependencies": {
+                "@pulumi/kubernetes": "^3.0.0"
             },
-            "go": {
-                "generateResourceContainerTypes": true,
-                "importBasePath": "github.com/rawkode/pulumi-productionapp/sdk/go/productionapp"
-            },
-            "nodejs": {
-                "dependencies": {
-                    "@pulumi/kubernetes": "^3.0.0"
-                },
-                "devDependencies": {
-                    "typescript": "^3.7.0"
-                }
-            },
-            "python": {
-                "requires": {
-                    "pulumi": ">=3.0.0,<4.0.0",
-                    "pulumi-kubernetes": ">=3.0.0,<4.0.0"
-                }
+            "devDependencies": {
+                "typescript": "^3.7.0"
+            }
+        },
+        "python": {
+            "packageName": "rawkode_pulumi_productionapp",
+            "requires": {
+                "pulumi": ">=3.0.0,<4.0.0",
+                "pulumi-kubernetes": ">=3.0.0,<4.0.0"
             }
         }
     }
